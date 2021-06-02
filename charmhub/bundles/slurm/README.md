@@ -15,7 +15,7 @@ To do this using an overlay, create the overlay config and then use it in the de
 
 Create the overlay file.
 ```bash
-cat << EOY > /tmp/slurm-overlay.yaml
+cat << EOF > /tmp/slurm-overlay.yaml
 applications:
   slurmctld:
     options:
