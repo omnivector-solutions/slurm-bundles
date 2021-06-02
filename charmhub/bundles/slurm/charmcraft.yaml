@@ -1,0 +1,5 @@
+type: bundle
+parts:
+  bundle:
+    # bundle.yaml is included automatically
+    prime: ["README.md"]

@@ -1,0 +1,34 @@
+name: slurm
+series: focal
+applications:
+  percona-cluster:
+    charm: percona-cluster
+    channel: stable
+    series: bionic
+    num_units: 1
+  slurmctld:
+    charm: slurmctld
+    channel: stable
+    num_units: 1
+  slurmd:
+    charm: slurmd
+    channel: stable
+    num_units: 1
+  slurmdbd:
+    charm: slurmdbd
+    channel: stable
+    num_units: 1
+    constraints: arch=amd64
+  slurmrestd:
+    charm: slurmrestd
+    channel: stable
+    num_units: 1
+relations:
+- - slurmdbd:db
+  - percona-cluster:db
+- - slurmctld:slurmdbd
+  - slurmdbd:slurmdbd
+- - slurmd:slurmd
+  - slurmctld:slurmd
+- - slurmctld:slurmrestd
+  - slurmrestd:slurmrestd
